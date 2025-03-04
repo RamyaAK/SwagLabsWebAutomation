@@ -5,15 +5,21 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
-import swag_labs.pages.HomePage;
-import swag_labs.pages.LoginPage;
+import swag_labs.pages.*;
 
 public class BaseTest {
     protected WebDriver driver;
     protected HomePage homePage;
     protected LoginPage loginPage;
+    protected InventoryPage inventoryPage;
+    protected ProductDetailsPage productDetailsPage;
+    protected CheckoutPage checkoutPage;
+    protected CheckoutInformationPage checkoutInformationPage;
+    protected CheckoutOverviewPage checkoutOverviewPage;
+    protected CheckoutCompletePage checkoutCompletePage;
+
     @BeforeClass
-    public void setup(){
+    public void setup() {
         WebDriverManager.chromedriver().setup();
         ChromeDriver driver = new ChromeDriver();
         this.driver = driver;
@@ -24,6 +30,13 @@ public class BaseTest {
     private void initializePageObjects() {
         homePage = new HomePage(driver);
         loginPage = new LoginPage(driver);
+        inventoryPage = new InventoryPage(driver);
+        productDetailsPage = new ProductDetailsPage(driver);
+        checkoutPage = new CheckoutPage(driver);
+        checkoutInformationPage = new CheckoutInformationPage(driver);
+        checkoutOverviewPage=new CheckoutOverviewPage(driver);
+        checkoutCompletePage =new CheckoutCompletePage(driver);
+
     }
 
     private void launchUrl() {
@@ -31,7 +44,7 @@ public class BaseTest {
     }
 
     @AfterClass
-    public void teardown(){
+    public void teardown() {
         driver.quit();
         System.out.println("closing tests, Thank you!");
     }
