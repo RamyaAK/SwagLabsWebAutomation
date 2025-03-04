@@ -1,6 +1,5 @@
 package swag_labs.pages;
 
-import lombok.extern.java.Log;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 

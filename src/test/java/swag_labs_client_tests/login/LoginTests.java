@@ -5,7 +5,7 @@ import org.testng.annotations.Test;
 import swag_labs_client_tests.base.BaseTest;
 
 public class LoginTests extends BaseTest {
-    @Test
+    @Test(priority = 0)
     public void valid_login_test() {
         homePage.enter_username("standard_user")
                 .enter_password("secret_sauce")
@@ -15,7 +15,7 @@ public class LoginTests extends BaseTest {
 
     }
 
-    @Test
+    @Test(priority = 1)
     public void Invalid_login_test() {
         homePage.enter_username("abc")
                 .enter_password("abc_123")

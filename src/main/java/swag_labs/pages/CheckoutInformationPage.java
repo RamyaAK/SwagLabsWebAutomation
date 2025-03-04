@@ -6,7 +6,7 @@ import org.openqa.selenium.WebDriver;
 public class CheckoutInformationPage {
     private WebDriver driver;
     private By firstname = By.cssSelector("#first-name");
-    private By lastname = By.cssSelector("#first-name");
+    private By lastname = By.cssSelector("#last-name");
     private By zip_code = By.cssSelector("#postal-code");
     private By continue_button = By.cssSelector("input[value='CONTINUE']");
 

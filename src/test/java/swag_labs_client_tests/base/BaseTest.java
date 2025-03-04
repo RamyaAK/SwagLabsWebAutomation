@@ -34,8 +34,8 @@ public class BaseTest {
         productDetailsPage = new ProductDetailsPage(driver);
         checkoutPage = new CheckoutPage(driver);
         checkoutInformationPage = new CheckoutInformationPage(driver);
-        checkoutOverviewPage=new CheckoutOverviewPage(driver);
-        checkoutCompletePage =new CheckoutCompletePage(driver);
+        checkoutOverviewPage= new CheckoutOverviewPage(driver);
+        checkoutCompletePage = new CheckoutCompletePage(driver);
 
     }
 
@@ -45,7 +45,7 @@ public class BaseTest {
 
     @AfterClass
     public void teardown() {
-        driver.quit();
+        driver.close();
         System.out.println("closing tests, Thank you!");
     }
 }
