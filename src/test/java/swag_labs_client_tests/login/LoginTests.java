@@ -7,10 +7,14 @@ import swag_labs_client_tests.base.BaseTest;
 public class LoginTests extends BaseTest {
     @Test(priority = 0)
     public void valid_login_test() {
+        homePage.verifyOnHomePage();
         homePage.enter_username("standard_user")
                 .enter_password("secret_sauce")
                 .click_on_login_button();
         String result = loginPage.verify_on_login_page();
+        loginPage.user_logout();
+        String homePageTitle = homePage.verifyOnHomePage();
+        Assert.assertEquals(homePageTitle,"Swag Labs","User on Homepage");
         Assert.assertEquals(result, "Swag Labs", "Login successful.");
 
     }

@@ -2,6 +2,11 @@ package swag_labs.pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
 
 public class HomePage {
     private WebDriver driver;
@@ -15,8 +20,14 @@ public class HomePage {
         this.driver = driver;
     }
 
+    public String verifyOnHomePage(){
+        return driver.getTitle();
+    }
+
     public HomePage enter_username(String user_id){
-        driver.findElement(username).sendKeys(user_id);
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        WebElement usernameField = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("#user-name")));
+        usernameField.sendKeys(user_id);
         return new HomePage(driver);
     }
 

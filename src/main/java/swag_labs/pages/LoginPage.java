@@ -1,15 +1,14 @@
 package swag_labs.pages;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-import java.util.List;
-
 public class LoginPage {
     private WebDriver driver;
-    private By logoutbtn = By.cssSelector("div[class='bm-burger-button'] button");
-    private By menuOptions = By.cssSelector(".bm-item.menu-item");// 4 items
+    private By menue_icon = By.cssSelector("div[class='bm-burger-button'] button");
+    private By logout_button = By.cssSelector("#logout_sidebar_link");// 4 items
 
     public LoginPage(WebDriver driver) {
         this.driver = driver;
@@ -19,16 +18,10 @@ public class LoginPage {
         return driver.getTitle();
     }
 
-    public void logout() {
-        driver.findElement(logoutbtn).click();
-        List<WebElement> options = driver.findElements(menuOptions);
-        String option ="Logout";
-        for (WebElement webElement : options) {
-            if (option.equalsIgnoreCase(webElement.getText())) {
-                webElement.click();
-                break;
-            }
-        }
-
+    public void user_logout() {
+        driver.findElement(menue_icon).click();
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        WebElement logout_Button = driver.findElement(logout_button);
+        js.executeScript("arguments[0].click();", logout_Button);
     }
 }
