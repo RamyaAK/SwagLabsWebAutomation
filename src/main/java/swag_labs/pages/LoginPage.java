@@ -15,6 +15,7 @@ public class LoginPage {
     }
 
     public String verify_on_login_page() {
+        driver.findElement(By.cssSelector(".header_secondary_container")).isDisplayed();
         return driver.getTitle();
     }
 

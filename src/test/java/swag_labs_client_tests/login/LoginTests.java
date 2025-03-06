@@ -25,8 +25,24 @@ public class LoginTests extends BaseTest {
                 .enter_password("abc_123")
                 .click_on_login_button();
         Boolean result = homePage.isErrorMsgDisplayed();
-        Assert.assertTrue(result);
-        System.out.println(result);
+        Assert.assertTrue(result,"Error message displayed for invalid user credentials.");
+    }
 
+    @Test(priority =2)
+    public void blank_credentials_login_test(){
+        homePage.enter_username("")
+                .enter_password("")
+                .click_on_login_button();
+        Boolean error_msg=homePage.isErrorMsgDisplayed();
+        Assert.assertTrue(error_msg,"User credentials cannot be empty or blank error.");
+    }
+
+    @Test(priority =3)
+    public void locked_user_login_attempt(){
+        homePage.enter_username("locked_out_user")
+                .enter_password("secret_sauce")
+                .click_on_login_button();
+        Boolean error_msg =homePage.isErrorMsgDisplayed();
+        Assert.assertTrue(error_msg,"Locked User cannot be logged In.");
     }
 }

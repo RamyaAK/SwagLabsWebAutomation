@@ -1,0 +1,10 @@
+Steps for user adding product to cart:
+         login-> login page
+         select a product -> inventory page
+         add to cart -> product details page
+         click on cart icon -> checkout page
+         click on checkout btn -> checkout page
+         Fill Firstname, lastname and Zip and click continue -> checkout information page
+         click on finish button -> checkout overview page
+         Assert msg "thank for your order" -> checkout complete page
+

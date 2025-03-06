@@ -5,18 +5,8 @@ import org.testng.annotations.Test;
 import swag_labs_client_tests.base.BaseTest;
 
 public class CartTests extends BaseTest {
-    @Test
+    @Test(priority =0)
     public void buyProduct() {
-        /* Steps:
-         login-> login page
-         select a product -> inventory page
-         add to cart -> product details page
-         click on cart icon -> checkout page
-         click on checkout btn -> checkout page
-         Fill Firstname, lastname and Zip and click continue -> checkout information page
-         click on finish button -> checkout overview page
-         Assert msg "thank for your order" -> checkout complete page
-         */
         homePage.enter_username("standard_user")
                 .enter_password("secret_sauce")
                 .click_on_login_button();
@@ -35,6 +25,8 @@ public class CartTests extends BaseTest {
 
         String result = checkoutCompletePage.verifyOrderPlacedSuccessfully();
         Assert.assertEquals(result, "THANK YOU FOR YOUR ORDER");
+
+        loginPage.user_logout();
 
     }
 }
